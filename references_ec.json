@@ -1,0 +1,393 @@
+{
+    "Questions::size": {
+        "callers": [
+            "KnowledgeBase::inputQuestion",
+            "KnowledgeBase::run"
+        ],
+        "callees": []
+    },
+    "KnowledgeBase::inputQuestion": {
+        "callers": [
+            "KnowledgeBase::input"
+        ],
+        "callees": [
+            "Variables::add",
+            "KnowledgeBase::error",
+            "KnowledgeBase::inputToken",
+            "Questions::size",
+            "Questions::add",
+            "KnowledgeBase::inputIsAre"
+        ]
+    },
+    "KnowledgeBase::run": {
+        "callers": [
+            "main"
+        ],
+        "callees": [
+            "Variables::get",
+            "LegalAnswers::size",
+            "KnowledgeBase::report",
+            "Questions::size",
+            "Rules::reset",
+            "Variables::reset",
+            "KnowledgeBase::prove",
+            "KnowledgeBase::inputCommand"
+        ]
+    },
+    "LegalAnswers::add": {
+        "callers": [
+            "KnowledgeBase::inputLegalAnswers"
+        ],
+        "callees": []
+    },
+    "KnowledgeBase::inputLegalAnswers": {
+        "callers": [
+            "KnowledgeBase::input"
+        ],
+        "callees": [
+            "LegalAnswers::add",
+            "KnowledgeBase::error",
+            "LegalAnswers::size",
+            "LegalAnswers::setActive",
+            "KnowledgeBase::inputToken",
+            "LegalAnswers::isActive",
+            "KnowledgeBase::inputIsAre"
+        ]
+    },
+    "KnowledgeBase::getValue": {
+        "callers": [
+            "Rule::prove"
+        ],
+        "callees": [
+            "Variables::get"
+        ]
+    },
+    "Rule::prove": {
+        "callers": [],
+        "callees": [
+            "KnowledgeBase::report",
+            "KnowledgeBase::getValue",
+            "KnowledgeBase::prove",
+            "KnowledgeBase::askValue",
+            "KnowledgeBase::setVariable"
+        ]
+    },
+    "Variables::get": {
+        "callers": [
+            "KnowledgeBase::getValue",
+            "KnowledgeBase::run"
+        ],
+        "callees": []
+    },
+    "main": {
+        "callers": [],
+        "callees": [
+            "KnowledgeBase::input",
+            "toupper",
+            "KnowledgeBase::run"
+        ]
+    },
+    "KnowledgeBase::setVariable": {
+        "callers": [
+            "Questions::ask",
+            "Rule::prove"
+        ],
+        "callees": [
+            "Variables::set"
+        ]
+    },
+    "Questions::ask": {
+        "callers": [
+            "KnowledgeBase::prove",
+            "KnowledgeBase::askValue"
+        ],
+        "callees": [
+            "toupper",
+            "KnowledgeBase::isLegalAnswer",
+            "KnowledgeBase::report",
+            "KnowledgeBase::outputLegalAnswers",
+            "KnowledgeBase::setVariable"
+        ]
+    },
+    "Questions::add": {
+        "callers": [
+            "KnowledgeBase::inputQuestion"
+        ],
+        "callees": []
+    },
+    "Rules::reset": {
+        "callers": [
+            "KnowledgeBase::run"
+        ],
+        "callees": []
+    },
+    "KnowledgeBase::inputRule": {
+        "callers": [
+            "KnowledgeBase::input"
+        ],
+        "callees": [
+            "Rule::addCondition",
+            "Rules::add",
+            "Variables::add",
+            "KnowledgeBase::inputVariableValue",
+            "KnowledgeBase::inputToken",
+            "KnowledgeBase::error",
+            "Rule::addConclusion"
+        ]
+    },
+    "Rules::add": {
+        "callers": [
+            "KnowledgeBase::inputRule"
+        ],
+        "callees": []
+    },
+    "Variables::add": {
+        "callers": [
+            "KnowledgeBase::inputRule",
+            "KnowledgeBase::inputQuestion",
+            "KnowledgeBase::inputAnswer",
+            "KnowledgeBase::inputGoal"
+        ],
+        "callees": []
+    },
+    "Rule::addConclusion": {
+        "callers": [
+            "KnowledgeBase::inputRule"
+        ],
+        "callees": []
+    },
+    "Rule::addCondition": {
+        "callers": [
+            "KnowledgeBase::inputRule"
+        ],
+        "callees": []
+    },
+    "KnowledgeBase::error": {
+        "callers": [
+            "KnowledgeBase::inputRule",
+            "KnowledgeBase::inputToken",
+            "KnowledgeBase::inputCommand",
+            "KnowledgeBase::inputLegalAnswers",
+            "KnowledgeBase::input",
+            "KnowledgeBase::inputQuestion",
+            "KnowledgeBase::inputAnswer",
+            "KnowledgeBase::inputGoal"
+        ],
+        "callees": []
+    },
+    "KnowledgeBase::inputToken": {
+        "callers": [
+            "KnowledgeBase::inputRule",
+            "KnowledgeBase::inputVariableValue",
+            "KnowledgeBase::inputLegalAnswers",
+            "KnowledgeBase::inputIsAre",
+            "KnowledgeBase::input",
+            "KnowledgeBase::inputQuestion",
+            "KnowledgeBase::inputAnswer",
+            "KnowledgeBase::inputGoal"
+        ],
+        "callees": [
+            "KnowledgeBase::error",
+            "toupper"
+        ]
+    },
+    "KnowledgeBase::inputVariableValue": {
+        "callers": [
+            "KnowledgeBase::inputRule"
+        ],
+        "callees": [
+            "KnowledgeBase::inputIsAre",
+            "KnowledgeBase::inputToken"
+        ]
+    },
+    "KnowledgeBase::prove": {
+        "callers": [
+            "Rule::prove",
+            "KnowledgeBase::run"
+        ],
+        "callees": [
+            "Questions::ask",
+            "Rules::prove"
+        ]
+    },
+    "Rules::prove": {
+        "callers": [
+            "KnowledgeBase::prove"
+        ],
+        "callees": [
+            "KnowledgeBase::report"
+        ]
+    },
+    "KnowledgeBase::inputAnswer": {
+        "callers": [
+            "KnowledgeBase::input"
+        ],
+        "callees": [
+            "Variables::add",
+            "KnowledgeBase::error",
+            "KnowledgeBase::inputIsAre",
+            "KnowledgeBase::inputToken"
+        ]
+    },
+    "KnowledgeBase::inputGoal": {
+        "callers": [
+            "KnowledgeBase::input"
+        ],
+        "callees": [
+            "Variables::add",
+            "KnowledgeBase::error",
+            "KnowledgeBase::inputIsAre",
+            "KnowledgeBase::inputToken"
+        ]
+    },
+    "KnowledgeBase::input": {
+        "callers": [
+            "main"
+        ],
+        "callees": [
+            "KnowledgeBase::inputRule",
+            "KnowledgeBase::inputToken",
+            "KnowledgeBase::inputLegalAnswers",
+            "KnowledgeBase::error",
+            "KnowledgeBase::inputQuestion",
+            "KnowledgeBase::inputAnswer",
+            "KnowledgeBase::inputGoal"
+        ]
+    },
+    "LegalAnswers::output": {
+        "callers": [
+            "KnowledgeBase::outputLegalAnswers",
+            "KnowledgeBase::output"
+        ],
+        "callees": [
+            "LegalAnswers::size"
+        ]
+    },
+    "LegalAnswers::size": {
+        "callers": [
+            "KnowledgeBase::inputLegalAnswers",
+            "KnowledgeBase::run",
+            "LegalAnswers::output"
+        ],
+        "callees": []
+    },
+    "KnowledgeBase::report": {
+        "callers": [
+            "KnowledgeBase::run",
+            "Questions::ask",
+            "Rules::prove",
+            "Rule::prove"
+        ],
+        "callees": []
+    },
+    "toupper": {
+        "callers": [
+            "Questions::ask",
+            "toupper",
+            "KnowledgeBase::inputToken",
+            "main",
+            "KnowledgeBase::inputCommand"
+        ],
+        "callees": [
+            "toupper"
+        ]
+    },
+    "KnowledgeBase::isLegalAnswer": {
+        "callers": [
+            "Questions::ask"
+        ],
+        "callees": [
+            "LegalAnswers::isLegal"
+        ]
+    },
+    "KnowledgeBase::outputLegalAnswers": {
+        "callers": [
+            "Questions::ask"
+        ],
+        "callees": [
+            "LegalAnswers::output"
+        ]
+    },
+    "Variables::set": {
+        "callers": [
+            "KnowledgeBase::setVariable"
+        ],
+        "callees": []
+    },
+    "LegalAnswers::isLegal": {
+        "callers": [
+            "KnowledgeBase::isLegalAnswer"
+        ],
+        "callees": [
+            "LegalAnswers::isActive"
+        ]
+    },
+    "KnowledgeBase::inputIsAre": {
+        "callers": [
+            "KnowledgeBase::inputVariableValue",
+            "KnowledgeBase::inputLegalAnswers",
+            "KnowledgeBase::inputQuestion",
+            "KnowledgeBase::inputAnswer",
+            "KnowledgeBase::inputGoal"
+        ],
+        "callees": [
+            "KnowledgeBase::inputToken"
+        ]
+    },
+    "Rules::output": {
+        "callers": [
+            "KnowledgeBase::output"
+        ],
+        "callees": []
+    },
+    "KnowledgeBase::output": {
+        "callers": [],
+        "callees": [
+            "Rules::output",
+            "LegalAnswers::output",
+            "Questions::output"
+        ]
+    },
+    "Questions::output": {
+        "callers": [
+            "KnowledgeBase::output"
+        ],
+        "callees": []
+    },
+    "KnowledgeBase::inputCommand": {
+        "callers": [
+            "KnowledgeBase::run"
+        ],
+        "callees": [
+            "KnowledgeBase::error",
+            "toupper"
+        ]
+    },
+    "Variables::reset": {
+        "callers": [
+            "KnowledgeBase::run"
+        ],
+        "callees": []
+    },
+    "LegalAnswers::isActive": {
+        "callers": [
+            "KnowledgeBase::inputLegalAnswers",
+            "LegalAnswers::isLegal"
+        ],
+        "callees": []
+    },
+    "LegalAnswers::setActive": {
+        "callers": [
+            "KnowledgeBase::inputLegalAnswers"
+        ],
+        "callees": []
+    },
+    "KnowledgeBase::askValue": {
+        "callers": [
+            "Rule::prove"
+        ],
+        "callees": [
+            "Questions::ask"
+        ]
+    }
+}
